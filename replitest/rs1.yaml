@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: toto
+  name: toto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toto
+  template:
+    metadata:
+      labels:
+        app: toto
+    spec:
+      containers:
+      - image: jpetazzo/color
+        name: color

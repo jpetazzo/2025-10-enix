@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  pingpong.conf: |
+    [global]
+    timeout=3
+
+    [targets]
+    primary=1.1.1.1
+    secondary=2.2.2.2
+  target: 8.8.8.8
+  today: friday
+kind: ConfigMap
+metadata:
+  name: pingpong

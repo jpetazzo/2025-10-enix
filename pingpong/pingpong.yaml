@@ -17,7 +17,13 @@ spec:
       terminationGracePeriodSeconds: 3
       containers:
       - command:
-        - ping
-        - 1.1.1.1
+        - sh
+        - -c
+        - ping $TARGET
         image: alpine
         name: alpine
+        env:
+        - name: TARGET
+          value: 1.1.1.1
+        - name: HELLO
+          value: world

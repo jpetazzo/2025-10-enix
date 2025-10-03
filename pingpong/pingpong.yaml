@@ -17,6 +17,6 @@ spec:
       containers:
       - command:
         - ping
-        - localhost
+        - enix.io
         image: alpine
         name: alpine

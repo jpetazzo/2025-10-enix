@@ -7,7 +7,7 @@ data:
     [targets]
     primary=1.1.1.1
     secondary=2.2.2.2
-  target: 8.8.8.8
+  target: 4.2.2.1
   today: friday
 kind: ConfigMap
 metadata:

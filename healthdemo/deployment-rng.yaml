@@ -17,3 +17,6 @@ spec:
       containers:
       - image: dockercoins/rng:v0.1
         name: rng
+        readinessProbe:
+          httpGet:
+            port: 80

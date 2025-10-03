@@ -24,6 +24,8 @@ spec:
         name: alpine
         env:
         - name: TARGET
-          value: 1.1.1.1
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.hostIP
         - name: HELLO
           value: world

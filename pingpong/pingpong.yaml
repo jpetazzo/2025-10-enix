@@ -18,6 +18,6 @@ spec:
       containers:
       - command:
         - ping
-        - enix.io
+        - 1.1.1.1
         image: alpine
         name: alpine

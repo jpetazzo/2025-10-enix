@@ -25,7 +25,8 @@ spec:
         env:
         - name: TARGET
           valueFrom:
-            fieldRef:
-              fieldPath: metadata.labels['pingtarget']
+            configMapKeyRef:
+              name: pingpong
+              key: target
         - name: HELLO
           value: world

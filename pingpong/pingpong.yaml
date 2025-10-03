@@ -26,6 +26,6 @@ spec:
         - name: TARGET
           valueFrom:
             fieldRef:
-              fieldPath: spec.hostIP
+              fieldPath: status.hostIP
         - name: HELLO
           value: world

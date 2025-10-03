@@ -26,6 +26,6 @@ spec:
         - name: TARGET
           valueFrom:
             fieldRef:
-              fieldPath: metadata.labels["pingtarget"]
+              fieldPath: metadata.labels['pingtarget']
         - name: HELLO
           value: world

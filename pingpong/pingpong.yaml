@@ -15,6 +15,10 @@ spec:
         app: pingpong
     spec:
       terminationGracePeriodSeconds: 3
+      volumes:
+      - name: conf
+        configMap:
+          name: pingpong
       containers:
       - command:
         - sh
@@ -22,6 +26,9 @@ spec:
         - ping $TARGET
         image: alpine
         name: alpine
+        volumeMounts:
+        - name: conf
+          mountPath: /etc/pingpong
         env:
         - name: TARGET
           valueFrom:

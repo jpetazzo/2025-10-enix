@@ -1,7 +1,7 @@
 #!/bin/sh
 
-helm install hasher ./generic
-helm install redis ./generic
-helm install rng ./generic
-helm install webui ./generic
-helm install worker ./generic
+helm upgrade --install hasher ./generic
+helm upgrade --install redis ./generic
+helm upgrade --install rng ./generic
+helm upgrade --install webui ./generic
+helm upgrade --install worker ./generic

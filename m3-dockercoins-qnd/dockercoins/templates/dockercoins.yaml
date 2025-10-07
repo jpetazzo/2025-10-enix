@@ -76,7 +76,7 @@ metadata:
     app: rng
   name: rng
 spec:
-  replicas: 1
+  replicas: {{ .Values.scale }}
   selector:
     matchLabels:
       app: rng

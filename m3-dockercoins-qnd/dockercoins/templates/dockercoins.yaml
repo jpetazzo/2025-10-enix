@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   labels:
     app: hasher
+    instance: {{ .Values.label }}
   name: hasher
 spec:
   replicas: 1

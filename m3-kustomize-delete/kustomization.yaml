@@ -5,6 +5,6 @@ resources:
 patches:
 #- path: delete-deployment-blue.patch
 labels:
-- includeSelectors: true
+- includeSelectors: false
   pairs:
     deployed-with: kustomize

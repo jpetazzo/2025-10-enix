@@ -146,7 +146,7 @@ metadata:
     app: worker
   name: worker
 spec:
-  replicas: 1
+  replicas: {{ .Values.scale }}
   selector:
     matchLabels:
       app: worker

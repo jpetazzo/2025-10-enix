@@ -5,4 +5,4 @@ commonLabels:
 resources:
 - deployment-blue.yaml
 patches:
-- delete-deployment-blue.patch
+- path: delete-deployment-blue.patch

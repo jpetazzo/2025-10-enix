@@ -4,3 +4,5 @@ commonLabels:
   deployed-with: kustomize
 resources:
 - deployment-blue.yaml
+patches:
+- delete-deployment-blue.patch

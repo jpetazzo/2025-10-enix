@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - deployment-blue.yaml
 patches:
-#- path: delete-deployment-blue.patch
+- path: delete-deployment-blue.patch
 labels:
 - includeSelectors: false
   pairs:

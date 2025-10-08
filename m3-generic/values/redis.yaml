@@ -1,7 +1,7 @@
 image:
   repository: redis
   tag: latest
-readinessProbe: null
-livenessProbe: null
+readinessProbe: false
+livenessProbe: false
 service:
   port: 6379

@@ -16,6 +16,7 @@ helm upgrade --install rng ./generic \
   #
 helm upgrade --install webui ./generic \
   --set image.repository=dockercoins/webui \
+  --set service.type=NodePort \
   #
 helm upgrade --install worker ./generic \
   --set image.repository=dockercoins/worker \

@@ -9,6 +9,7 @@ helm upgrade --install redis ./generic \
   --set image.tag=latest \
   --set readinessProbe=null \
   --set livenessProbe=null \
+  --set service.port=6379 \
   #
 helm upgrade --install rng ./generic \
   --set image.repository=dockercoins/rng \

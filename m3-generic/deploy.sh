@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-for COMPONENT in hasher redis rng webui worker;
-do
-  helm upgrade --install $COMPONENT ./generic --values values-$COMPONENT.yaml
+for VALUES in values/*.yaml; do
+  COMPONENT=$(basename ${VALUES%.yaml})
+  helm upgrade --install $COMPONENT ./generic --values $VALUES
 done
 

@@ -46,10 +46,10 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           {{- end }}
-          {{- if .Values.readinessProbe == false }}
+          {{- if eq .Values.readinessProbe false }}
           # No readiness probe
           {{- else }}
-          {{- if .Values.readinessProbe == "default" }}
+          {{- if eq .Values.readinessProbe "default" }}
           readinessProbe:
             httpGet:
               port: http

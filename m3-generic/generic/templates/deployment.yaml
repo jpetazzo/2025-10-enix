@@ -50,7 +50,7 @@ spec:
           # No readiness probe
           {{- else }}
           {{- if eq (toString .Values.readinessProbe) "default" }}
-          {{- if Values.service }}
+          {{- if .Values.service }}
           readinessProbe:
             httpGet:
               port: http

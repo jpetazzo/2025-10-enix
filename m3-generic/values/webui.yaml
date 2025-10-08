@@ -1,4 +1,2 @@
 service:
   type: NodePort
-image:
-  repository: dockercoins/webui

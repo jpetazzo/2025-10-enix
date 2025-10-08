@@ -1,11 +1,12 @@
 #!/bin/sh
+set -e
 
 helm upgrade --install hasher ./generic \
   --set image.repository=dockercoins/hasher \
   --set image.tag=v0.1 \
   #
 helm upgrade --install redis ./generic \
-  --set image.repository=redis
+  --set image.repository=redis \
   --set image.tag=latest \
   #
 helm upgrade --install rng ./generic \

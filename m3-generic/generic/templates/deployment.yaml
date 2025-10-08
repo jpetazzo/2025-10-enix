@@ -46,13 +46,17 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           {{- end }}
-          {{- with .Values.livenessProbe }}
-          livenessProbe:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.readinessProbe }}
+          {{- if .Values.readinessProbe == false }}
+          # No readiness probe
+          {{- else }}
+          {{- if .Values.readinessProbe == "default" }}
           readinessProbe:
-            {{- toYaml . | nindent 12 }}
+            httpGet:
+              port: http
+          {{- else }}
+          readinessProbe:
+            {{- .Values.readinessProbe | toYaml | nindent 12 }}
+          {{- end }}
           {{- end }}
           {{- with .Values.resources }}
           resources:

@@ -3,3 +3,5 @@ label: toto
 
 redis:
   fullnameOverride: redis
+  persistence:
+    enabled: false

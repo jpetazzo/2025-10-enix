@@ -5,3 +5,5 @@ redis:
   fullnameOverride: redis
   persistence:
     enabled: false
+  auth:
+    enabled: false

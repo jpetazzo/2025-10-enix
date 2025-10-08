@@ -7,6 +7,7 @@ helm upgrade --install hasher ./generic \
 helm upgrade --install redis ./generic \
   --set image.repository=redis \
   --set image.tag=latest \
+  --set readinessProbe=null \
   --set livenessProbe=null \
   #
 helm upgrade --install rng ./generic \

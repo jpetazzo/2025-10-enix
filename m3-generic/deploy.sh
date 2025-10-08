@@ -18,4 +18,6 @@ helm upgrade --install webui ./generic \
   #
 helm upgrade --install worker ./generic \
   --set image.repository=dockercoins/worker \
+  --set readinessProbe=null \
+  --set livenessProbe=null \
   #

@@ -50,9 +50,11 @@ spec:
           # No readiness probe
           {{- else }}
           {{- if eq (toString .Values.readinessProbe) "default" }}
+          {{- if Values.service }}
           readinessProbe:
             httpGet:
               port: http
+          {{- end }}
           {{- else }}
           readinessProbe:
             {{- .Values.readinessProbe | toYaml | nindent 12 }}

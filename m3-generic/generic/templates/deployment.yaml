@@ -49,7 +49,7 @@ spec:
           {{- if .Values.readinessProbe | toString | eq "false" }}
           # No readiness probe
           {{- else }}
-          {{- if .Values.readinessProbe | troString | eq "default" }}
+          {{- if .Values.readinessProbe | toString | eq "default" }}
           {{- if .Values.service }}
           {{- if .Values.service.port | toString | eq "80" }}
           readinessProbe:

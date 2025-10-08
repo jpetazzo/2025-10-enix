@@ -43,7 +43,10 @@ spec:
           {{- else }}
           {{- $repository := printf "dockercoins/%s" .Release.Name }}
           {{- end }}
-          image: "{{ $repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ printf "%s:%s"
+            (.Values.image.repository | default (printf "dockercoins/%s" .Release.Name)
+            (.Values.image.tag | default .Chart.AppVersion)
+          }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.service }}
           ports:

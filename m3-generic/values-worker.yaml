@@ -1,0 +1,4 @@
+image:
+  repository: dockercoins/worker
+readinessProbe: null
+livenessProbe: null

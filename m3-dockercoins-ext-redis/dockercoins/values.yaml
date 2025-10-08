@@ -1,0 +1,5 @@
+scale: 1
+label: toto
+
+redis:
+  fullnameOverride: redis

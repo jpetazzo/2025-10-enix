@@ -1,4 +1,4 @@
-hasher: {}
+hasher: toto
 redis:
   image:
     repository: redis

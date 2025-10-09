@@ -1,3 +1,5 @@
+#@ load("@ytt:template", "template")
+
 #@ port = 80
 #@ def Deployment(name, tag="v0.1", registry="dockercoins"):
 #@ labels = {"app": name, "deployed-by": "ytt"}
@@ -39,5 +41,5 @@ spec:
 --- #@ Service(name, port)
 #@ end
 ---
---- #@ Component("hasher")
---- #@ Component("rng")
+--- #@ template.replace(Component("hasher"))
+--- #@ template.replace(Component("rng"))

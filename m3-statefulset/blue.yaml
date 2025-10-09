@@ -16,5 +16,5 @@ spec:
         update: now
     spec:
       containers:
-      - image: jpetazzo/color
+      - image: jpetazzo/color:bug
         name: color

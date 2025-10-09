@@ -73,7 +73,7 @@ spec:
   chart:
     spec:
       chart: m3-generic/generic
-      reconcileStrategy: ChartVersion
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: flux-system
@@ -94,7 +94,7 @@ spec:
   chart:
     spec:
       chart: m3-generic/generic
-      reconcileStrategy: ChartVersion
+      reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: flux-system

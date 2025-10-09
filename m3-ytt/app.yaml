@@ -1,21 +1,19 @@
 #@ name = "blue"
 #@ image = "jpetazzo/color"
 #@ port = 80
+#@ labels = {"app": name, "deployed-by": "ytt"}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: #@ name
+  labels: #@ labels
   name: #@ name
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      app: #@ name
+    matchLabels: #@ labels
   template:
     metadata:
-      labels:
-        app: #@ name
+      labels: #@ labels
     spec:
       containers:
       - image: #@ image
@@ -24,14 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: #@ name
+  labels: #@ labels
   name: #@ name
 spec:
   ports:
   - name: #@ name
     port: #@ port
-  selector:
-    app: #@ name
+  selector: #@ labels
 ---
 #@ name

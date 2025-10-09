@@ -32,7 +32,7 @@ dependencies:
 #  alias: redis
 - name: redis
   version: 23.1.1
-  repo: https://charts.bitnami.com/bitnami
+  repository: https://charts.bitnami.com/bitnami
 - name: generic
   version: "*"
   alias: rng

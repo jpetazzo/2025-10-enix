@@ -4,3 +4,17 @@ kind: Namespace
 metadata:
   name: m3-flux-blue
 ---
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: blue
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./apps/blue/manifests
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  targetNamespace: m3-blue

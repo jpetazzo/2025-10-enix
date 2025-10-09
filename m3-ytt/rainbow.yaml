@@ -1,5 +1,5 @@
 #@ load("@ytt:overlay", "overlay")
-#@overlay/match
+#@overlay/match by=overlay.all
 --- 
 metadata:
   annotations:

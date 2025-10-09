@@ -1,20 +1,21 @@
 #@ name = "blue"
+#@ image = "jpetazzo/color"
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: #@ name
-  name: blue
+  name: #@ name
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: blue
+      app: #@ name
   template:
     metadata:
       labels:
-        app: blue
+        app: #@ name
     spec:
       containers:
-      - image: jpetazzo/color
-        name: color
+      - image: #@ image
+        name: #@ name

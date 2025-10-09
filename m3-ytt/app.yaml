@@ -1,5 +1,4 @@
-#@ name = "blue"
-#@ image = "jpetazzo/color"
+#@ name = "worker"
 #@ port = 80
 #@ labels = {"app": name, "deployed-by": "ytt"}
 apiVersion: apps/v1
@@ -16,7 +15,7 @@ spec:
       labels: #@ labels
     spec:
       containers:
-      - image: #@ image
+      - image: #@ "dockercoins/" + name
         name: #@ name
 ---
 apiVersion: v1

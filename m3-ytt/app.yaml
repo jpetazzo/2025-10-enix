@@ -19,7 +19,8 @@ spec:
         name: #@ name
 #@ end
 ---
-#@ labels = {}
+#@ def Service(name, port):
+#@ labels = {"app": name, "deployed-by": "ytt"}
 apiVersion: v1
 kind: Service
 metadata:
@@ -30,6 +31,8 @@ spec:
   - name: #@ name
     port: #@ port
   selector: #@ labels
+#@ end
 ---
 #@ Deployment("worker", "v0.1")
 #@ Deployment("hasher", "v0.1")
+#@ Service("hasher", 80)

@@ -35,8 +35,8 @@ spec:
 #@ end
 ---
 #@ def Component(name, port=80):
-#@ Deployment(name)
-#@ Service(name, port)
+--- #@ Deployment(name)
+--- #@ Service(name, port)
 #@ end
 ---
 #@ Component("hasher")

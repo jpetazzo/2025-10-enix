@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: blue
+        update: now
     spec:
       containers:
       - image: jpetazzo/color

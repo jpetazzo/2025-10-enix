@@ -1,6 +1,7 @@
 #@ name = "worker"
 #@ port = 80
 #@ labels = {"app": name, "deployed-by": "ytt"}
+#@ tag = "v0.1"
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +16,7 @@ spec:
       labels: #@ labels
     spec:
       containers:
-      - image: #@ "dockercoins/" + name
+      - image: #@ "dockercoins/" + name + ":" + tag
         name: #@ name
 ---
 apiVersion: v1

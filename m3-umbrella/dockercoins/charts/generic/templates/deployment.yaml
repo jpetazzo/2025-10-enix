@@ -38,13 +38,8 @@ spec:
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- if .Values.image.repository }}
-          {{- $repository := .Values.image.repository }}
-          {{- else }}
-          {{- $repository := printf "dockercoins/%s" .Release.Name }}
-          {{- end }}
           image: "{{ printf "%s:%s"
-            (.Values.image.repository | default (printf "dockercoins/%s" .Release.Name))
+            (.Values.image.repository | default (printf "dockercoins/%s" .Chart.Name))
             (.Values.image.tag | default .Chart.AppVersion)
           }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}

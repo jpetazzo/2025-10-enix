@@ -6,6 +6,8 @@ redis:
   replica:
     persistence:
       enabled: false
+  image:
+    repository: bitnami/redis
   #image:
   #  repository: redis
   #  tag: latest

@@ -5,3 +5,4 @@ resources:
 - gotk-sync.yaml
 - ../../../apps/blue/flux.yaml
 - ../../../apps/dockercoins/flux.yaml
+- ../../../apps/x509-exporter/flux.yaml

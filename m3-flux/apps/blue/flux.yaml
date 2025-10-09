@@ -12,7 +12,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./apps/blue/manifests
+  path: ./m3-flux/apps/blue/manifests
   prune: true
   sourceRef:
     kind: GitRepository

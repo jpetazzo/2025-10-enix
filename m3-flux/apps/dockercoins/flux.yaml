@@ -11,7 +11,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./apps/dockercoins/manifests
+  path: ./m3-flux/apps/dockercoins/manifests
   prune: true
   sourceRef:
     kind: GitRepository

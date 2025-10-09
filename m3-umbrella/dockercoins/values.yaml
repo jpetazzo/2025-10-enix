@@ -1,0 +1,13 @@
+hasher:
+redis:
+  image:
+    repository: redis
+    tag: latest
+  service:
+    port: 6379
+rng:
+webui:
+  service:
+    type: NodePort
+worker:
+  service: false

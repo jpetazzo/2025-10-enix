@@ -33,6 +33,6 @@ spec:
   selector: #@ labels
 #@ end
 ---
-#@ Deployment("worker", "v0.1")
-#@ Deployment("hasher", "v0.1")
-#@ Service("hasher", 80)
+--- #@ Deployment("worker", "v0.1")
+--- #@ Deployment("hasher", "v0.1")
+--- #@ Service("hasher", 80)

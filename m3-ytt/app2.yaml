@@ -39,5 +39,5 @@ spec:
 --- #@ Service(name, port)
 #@ end
 ---
-#@ Component("hasher")
-#@ Component("rng")
+--- #@ Component("hasher")
+--- #@ Component("rng")

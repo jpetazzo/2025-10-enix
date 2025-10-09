@@ -33,3 +33,5 @@ spec:
     port: #@ port
   selector:
     app: #@ name
+---
+#@ name

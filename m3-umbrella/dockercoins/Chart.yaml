@@ -27,9 +27,12 @@ dependencies:
 - name: generic
   version: "*"
   alias: hasher
-- name: generic
-  version: "*"
-  alias: redis
+#- name: generic
+#  version: "*"
+#  alias: redis
+- name: redis
+  version: 23.1.1
+  repo: https://charts.bitnami.com/bitnami
 - name: generic
   version: "*"
   alias: rng

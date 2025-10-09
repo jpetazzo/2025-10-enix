@@ -38,8 +38,11 @@ spec:
 ---
 #@ def Component(name, port=80):
 --- #@ Deployment(name)
+#@ if port:
 --- #@ Service(name, port)
+#@ end
 #@ end
 ---
 --- #@ template.replace(Component("hasher"))
 --- #@ template.replace(Component("rng"))
+--- #@ template.replace(Component("worker", port=False))

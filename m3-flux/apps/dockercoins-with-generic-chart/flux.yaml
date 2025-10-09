@@ -5,6 +5,7 @@ metadata:
   name: redis
   namespace: flux-system
 spec:
+  releaseName: redis
   chart:
     spec:
       chart: m3-generic/generic

@@ -1,11 +1,11 @@
-hasher:
+hasher: {}
 redis:
   image:
     repository: redis
     tag: latest
   service:
     port: 6379
-rng:
+rng: {}
 webui:
   service:
     type: NodePort

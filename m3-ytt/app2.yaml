@@ -1,0 +1,43 @@
+#@ port = 80
+#@ def Deployment(name, tag="v0.1", registry="dockercoins"):
+#@ labels = {"app": name, "deployed-by": "ytt"}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels: #@ labels
+  name: #@ name
+spec:
+  replicas: 1
+  selector:
+    matchLabels: #@ labels
+  template:
+    metadata:
+      labels: #@ labels
+    spec:
+      containers:
+      - image: #@ "{}/{}:{}".format(registry, name, tag)
+        name: #@ name
+#@ end
+---
+#@ def Service(name, port=80, type="ClusterIP"):
+#@ labels = {"app": name, "deployed-by": "ytt"}
+apiVersion: v1
+kind: Service
+metadata:
+  labels: #@ labels
+  name: #@ name
+spec:
+  type: #@ type
+  ports:
+  - name: #@ name
+    port: #@ port
+  selector: #@ labels
+#@ end
+---
+#@ def Component(name, port=80):
+#@ Deployment(name)
+#@ Service(name, port)
+#@ end
+---
+#@ Component("hasher")
+#@ Component("rng")

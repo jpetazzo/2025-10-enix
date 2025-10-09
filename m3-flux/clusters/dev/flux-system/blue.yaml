@@ -2,6 +2,7 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: blue
+  namespace: flux-system
 spec:
   containers:
   - name: blue

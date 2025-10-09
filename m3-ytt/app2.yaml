@@ -28,6 +28,8 @@ kind: Service
 metadata:
   labels: #@ labels
   name: #@ name
+  annotations:
+    hello: world
 spec:
   type: #@ type
   ports:

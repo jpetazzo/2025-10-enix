@@ -6,5 +6,9 @@ spec:
   podSelector:
     matchLabels:
       app: blue
-  ingress: []
+  ingress:
+  - from:
+      - podSelector:
+          matchLabels:
+            app: rainbow
 

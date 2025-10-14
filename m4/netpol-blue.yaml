@@ -10,8 +10,4 @@ spec:
   - from:
       - namespaceSelector:
           matchLabels:
-            kubernetes.io/metadata.name: client
-      - podSelector:
-          matchLabels:
-            app: curl
-
+            kubernetes.io/metadata.name: clientxxxx

@@ -8,7 +8,7 @@ spec:
       app: blue
   ingress:
   - from:
-      - podSelector:
+      - namespaceSelector:
           matchLabels:
-            app: rainbow
+            kubernetes.io/metadata.name: client
 

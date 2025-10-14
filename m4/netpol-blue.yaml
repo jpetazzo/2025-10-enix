@@ -8,9 +8,9 @@ spec:
       app: blue
   ingress:
   - from:
-      - #namespaceSelector:
-        #  matchLabels:
-        #    kubernetes.io/metadata.name: client
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: client
         podSelector:
           matchLabels:
             app: curl

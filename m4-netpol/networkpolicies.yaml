@@ -31,3 +31,17 @@ spec:
   ingress:
   - from:
     - podSelector: {}
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: default
+spec:
+  podSelector:
+    matchExpressions:
+    - key: security
+      operation: In
+      value: [ public, private, namespace ]
+  ingress:
+  - from:
+    - podSelector: {}

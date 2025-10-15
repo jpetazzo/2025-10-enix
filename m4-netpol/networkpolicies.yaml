@@ -29,5 +29,5 @@ spec:
     matchLabels:
       security: namespace
   ingress:
-  - from: []
+  - from:
     - podSelector: {}

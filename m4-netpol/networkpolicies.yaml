@@ -40,8 +40,8 @@ spec:
   podSelector:
     matchExpressions:
     - key: security
-      operation: In
-      value: [ public, private, namespace ]
+      operator: NotIn
+      values: [ public, private, namespace ]
   ingress:
   - from:
     - podSelector: {}

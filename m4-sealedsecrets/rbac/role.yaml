@@ -25,7 +25,8 @@ rules:
   - '*'
 - apiGroups:
   - ""
-  resources: secrets
+  resources:
+  - secrets
   verbs:
   - '*'
   resourceNames:

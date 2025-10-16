@@ -12,7 +12,7 @@ spec:
           - Service
     preconditions:
       any:
-      - key: "{{ request.object.spec.ports[0].name }}"
+      - key: "{{ request.object.spec.ports[0].name || '' }}"
         operator: Equals
         value: http
     generate:

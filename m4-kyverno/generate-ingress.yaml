@@ -1,0 +1,34 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: generate-ingress
+spec:
+  rules:
+  - name: generate-ingress
+    match:
+      any:
+      - resources:
+          kinds:
+          - Service
+    generate:
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      name: "{{request.object.metadata.name}}"
+      namespace: "{{request.object.metadata.namespace}}"
+      data:
+        kind: Ingress
+        metadata:
+          labels:
+            container.training/generated-by: kyverno
+        spec:
+          rules:
+          - host: "{{requests.object.metadata.name}}.{{request.object.metadata.namespace}}.acelog.xyz"
+            http:
+              paths:
+              - backend:
+                  service:
+                    name: "{{request.object.metadata.name}}"
+                    port:
+                      number: 80
+                path: /
+                pathType: Prefix        

@@ -5,5 +5,6 @@ helm upgrade --install --repo https://traefik.github.io/charts \
   --version 37.1.2 \
   --set deployment.kind=DaemonSet \
   --set service.type=ClusterIP \
+  --set tolerations[0].effect=NoSchedule \
+  --set tolerations[0].key=node-role.kubernetes.io/control-plane \
   #
-

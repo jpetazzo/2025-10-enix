@@ -1,0 +1,49 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: generate-ingress
+spec:
+  rules:
+  - name: generate-ingress
+    context:
+    - name: dnsconfig
+      configMap:
+        name: ingress-domain
+        namespace: "{{ request.object.metadata.namespace }}"
+    match:
+      any:
+      - resources:
+          kinds:
+          - Service
+    preconditions:
+      any:
+      - key: "{{ request.object.spec.ports[0].port }}"
+        operator: In
+        value: [ 80, 8080, 8000 ]
+    generate:
+      synchronize: true
+      apiVersion: gateway.networking.k8s.io/v1
+      kind: HTTPRoute
+      name: "{{request.object.metadata.name}}"
+      namespace: "{{request.object.metadata.namespace}}"
+      data:
+        kind: HTTPRoute
+        metadata:
+          labels:
+            container.training/generated-by: kyverno
+          #ownerReferences:
+          #- kind: Service
+          #  apiVersion: v1
+          #  namespace: "{{request.object.metadata.namespace}}"
+          #  name: "{{request.object.metadata.name}}"
+          #  uid: "{{request.object.metadata.uid}}"
+        spec:
+          hostnames:
+          - "{{request.object.metadata.name}}.gwapi.{{ dnsconfig.data.domain }}"
+          parentRefs:
+          - namespace: traefik
+            name: traefik-gateway
+          rules:
+            - backendRefs:
+               - name: "{{request.object.metadata.name}}"
+                 port: 80

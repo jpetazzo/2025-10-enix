@@ -1,10 +1,10 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: generate-ingress
+  name: generate-httproute
 spec:
   rules:
-  - name: generate-ingress
+  - name: generate-httproute
     context:
     - name: dnsconfig
       configMap:

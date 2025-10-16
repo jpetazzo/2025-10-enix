@@ -32,7 +32,7 @@ spec:
             container.training/generated-by: kyverno
         spec:
           rules:
-          - host: "{{request.object.metadata.name}}.{{ dnsconfig.data.domain }}" #{{request.object.metadata.namespace}}.acelog.xyz"
+          - host: "{{request.object.metadata.name}}.{{ dnsconfig.data.domain || request.object.metadata.namespace }}"
             http:
               paths:
               - backend:

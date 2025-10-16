@@ -12,9 +12,9 @@ spec:
           - Service
     preconditions:
       any:
-      - key: "{{ request.object.spec.ports[0].name }}"
+      - key: "{{ request.object.spec.ports[0].port }}"
         operator: Equals
-        value: http
+        value: 80
     generate:
       apiVersion: networking.k8s.io/v1
       kind: Ingress

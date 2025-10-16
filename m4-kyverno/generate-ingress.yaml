@@ -25,11 +25,18 @@ spec:
       kind: Ingress
       name: "{{request.object.metadata.name}}"
       namespace: "{{request.object.metadata.namespace}}"
+      metadata:
       data:
         kind: Ingress
         metadata:
           labels:
             container.training/generated-by: kyverno
+          ownerReferences:
+          - kind: Service
+            apiVersion: v1
+            namespace: "{{request.object.metadata.namespace}}"
+            name: "{{request.object.metadata.name}}"
+            uid: "{{request.object.metadata.uid}}"
         spec:
           rules:
           - host: "{{request.object.metadata.name}}.{{ dnsconfig.data.domain }}"

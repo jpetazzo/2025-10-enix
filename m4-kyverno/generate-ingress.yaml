@@ -22,7 +22,7 @@ spec:
             container.training/generated-by: kyverno
         spec:
           rules:
-          - host: "{{requests.object.metadata.name}}.{{request.object.metadata.namespace}}.acelog.xyz"
+          - host: "{{request.object.metadata.name}}.{{request.object.metadata.namespace}}.acelog.xyz"
             http:
               paths:
               - backend:

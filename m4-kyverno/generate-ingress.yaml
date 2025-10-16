@@ -21,6 +21,7 @@ spec:
         operator: In
         value: [ 80, 8080, 8000 ]
     generate:
+      synchronize: true
       apiVersion: networking.k8s.io/v1
       kind: Ingress
       name: "{{request.object.metadata.name}}"
@@ -30,12 +31,12 @@ spec:
         metadata:
           labels:
             container.training/generated-by: kyverno
-          ownerReferences:
-          - kind: Service
-            apiVersion: v1
-            namespace: "{{request.object.metadata.namespace}}"
-            name: "{{request.object.metadata.name}}"
-            uid: "{{request.object.metadata.uid}}"
+          #ownerReferences:
+          #- kind: Service
+          #  apiVersion: v1
+          #  namespace: "{{request.object.metadata.namespace}}"
+          #  name: "{{request.object.metadata.name}}"
+          #  uid: "{{request.object.metadata.uid}}"
         spec:
           rules:
           - host: "{{request.object.metadata.name}}.{{ dnsconfig.data.domain }}"

@@ -11,4 +11,5 @@ helm upgrade --install --repo https://traefik.github.io/charts \
   --set ports.websecure.hostPort=443 \
   --set providers.kubernetesGateway.enabled=true \
   --set gateway.listeners.web.namespacePolicy.from=All \
+  --set ingressRoute.dashboard.enabled \
   #

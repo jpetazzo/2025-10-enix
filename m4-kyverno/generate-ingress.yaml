@@ -10,6 +10,11 @@ spec:
       - resources:
           kinds:
           - Service
+    preconditions:
+      any:
+      - key: "{{ request.object.spec.ports[0].name }}"
+        operator: Equals
+        value: http
     generate:
       apiVersion: networking.k8s.io/v1
       kind: Ingress

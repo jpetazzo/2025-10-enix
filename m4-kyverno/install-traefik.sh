@@ -12,4 +12,5 @@ helm upgrade --install --repo https://traefik.github.io/charts \
   --set providers.kubernetesGateway.enabled=true \
   --set gateway.listeners.web.namespacePolicy.from=All \
   --set ingressRoute.dashboard.enabled=true \
+  --set updateStrategy.rollingUpdate.maxUnavailable=1 \
   #

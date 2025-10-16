@@ -7,4 +7,6 @@ helm upgrade --install --repo https://traefik.github.io/charts \
   --set service.type=ClusterIP \
   --set tolerations[0].effect=NoSchedule \
   --set tolerations[0].key=node-role.kubernetes.io/control-plane \
+  --set ports.web.hostPort=80 \
+  --set ports.websecure.hostPort \
   #

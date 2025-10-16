@@ -25,7 +25,6 @@ spec:
       kind: Ingress
       name: "{{request.object.metadata.name}}"
       namespace: "{{request.object.metadata.namespace}}"
-      metadata:
       data:
         kind: Ingress
         metadata:

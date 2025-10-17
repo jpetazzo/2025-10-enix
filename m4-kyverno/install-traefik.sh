@@ -14,4 +14,6 @@ helm upgrade --install --repo https://traefik.github.io/charts \
   --set ingressRoute.dashboard.enabled=true \
   --set updateStrategy.rollingUpdate.maxSurge=0 \
   --set updateStrategy.rollingUpdate.maxUnavailable=1 \
+  --set resources.requests.cpu=0.1 \
+  --set resources.requests.memory=100M \
   #
